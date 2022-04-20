@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box;
+}
+
+
+.house {
+    background-color: #0084AB;
+    height: 2rem;
+}
+
+.folks {
+    background-color: #32B6DD;
+    height: 2rem;
+}
+

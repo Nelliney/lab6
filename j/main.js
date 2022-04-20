@@ -14,14 +14,18 @@ fetch("houses.json")
 
         //the argument "house" passed to the arrow function
         //holds each item in the array in turn.
+        var i = 0;
         data.forEach((house) => {
             let family = house.members.join(" | ");
 
             // generate the html snippet for one array item
             //to be added to the "html" temp holder.
-            let objInfo = `<dt class="house">${house.name}</dt>
-        <dd class="folks">${family}</dd>`;
+            let objInfo = undefined;
+            objInfo = `<dt class="house">${house.name}</dt>
+            <dd class="folks">${family}</dd>`;
+            
             html += objInfo;
+            i++;
         });
 
         //make a reference to the html container where
@@ -31,3 +35,11 @@ fetch("houses.json")
     })
     .catch((err) => console.log("Oops!", err));
     //this only runs if there is an error during the above process
+
+    fetch("https://x-colors.herokuapp.com/api/random/blue")
+  .then(response => response.json()) 
+  .then(data => {
+    document.body.style.backgroundColor = data.hex;
+  }).catch(err => {
+    console.error('oops', err.message);
+  });
